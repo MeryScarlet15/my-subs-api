@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "env-cmd -f ./.config/env/pro.env node build/index.js",
-    "build": "tsc",
+    "build": "tsc -p .",
     "dev": "env-cmd -f ./.config/env/dev.env nodemon index.ts",
     "cli": "ts-node src/cli/index.ts",
     "swagger": "ts-node src/cli/swagger/index.ts"
@@ -28,8 +28,7 @@
     "@types/swagger-ui-express": "^4.1.2",
     "concurrently": "^6.0.0",
     "nodemon": "^2.0.2",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.4"
+    "ts-node": "^8.5.4"
   },
   "dependencies": {
     "@types/swagger-jsdoc": "^6.0.0",
@@ -41,6 +40,7 @@
     "mongoose": "^5.8.3",
     "swagger-jsdoc": "^6.0.8",
     "swagger-ui-express": "^4.1.6",
-    "tsoa": "^3.5.2"
+    "tsoa": "^3.5.2",
+    "typescript": "^4.2.3"
   }
 }
