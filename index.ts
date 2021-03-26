@@ -1,5 +1,5 @@
 import { createServer } from "./src/config/server/server";
-import createDBConnection from "./src/config/db/db";
+import { createDBConnection } from "./src/config/db/db";
 
 createDBConnection()
   .then(() => {

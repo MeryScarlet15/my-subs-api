@@ -1,14 +1,12 @@
 import mongoose from "mongoose";
+import { MONGO_CONFIG } from "../../constants/data/config-mongo";
 
-const DB_TYPE: string = "mongodb";
-const DB_URL: string = "localhost:27017";
-const DB_NAME: string = "meryHooks";
-const COMPLETE_URL = `${DB_TYPE}://${DB_URL}/${DB_NAME}`;
+const mongoAuth =
+  MONGO_CONFIG.user && MONGO_CONFIG.userPassword ? `${MONGO_CONFIG.user}:${MONGO_CONFIG.userPassword}` : "";
+const COMPLETE_URL = `${MONGO_CONFIG.type}://${mongoAuth}${MONGO_CONFIG.host}/${MONGO_CONFIG.database}${MONGO_CONFIG.params}`;
 
-const createDBConnection = () => {
+export const createDBConnection = () => {
   mongoose.Promise = global.Promise;
 
   return mongoose.connect(COMPLETE_URL, { useUnifiedTopology: true });
 };
-
-export default createDBConnection;
