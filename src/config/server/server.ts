@@ -37,7 +37,7 @@ const setMiddlewareConfig = () => {
   app.use(bodyParser.json());
 };
 
-export const createServer = (port: number) => {
+export const createServer = (port: string) => {
   setMiddlewareConfig();
   routesConfig();
 
