@@ -40,7 +40,7 @@ const setMiddlewareConfig = () => {
 export const createServer = (port: string) => {
   setMiddlewareConfig();
   routesConfig();
-
+  console.log("Server ok");
   app.listen(port, () => {
     console.log("The server is running in " + port + " port");
   });
