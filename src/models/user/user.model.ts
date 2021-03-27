@@ -9,7 +9,6 @@ export interface IUser {
   name?: string;
   lastname?: string;
   password: string;
-  rol: TRol;
   tokens: string[];
   deletedAt?: string;
 }
@@ -19,8 +18,8 @@ export interface IUserDocument extends Document {
   name?: string;
   lastname?: string;
   password: string;
-  rol: TRol;
   tokens: string[];
+  salary: string;
   deletedAt?: string;
 }
 
@@ -29,13 +28,8 @@ const UserSchema: Schema = new Schema({
   password: { type: String, required: true },
   name: { type: String, required: true },
   lastname: { type: String, required: true },
-  rol: {
-    type: String,
-    enum: ["ADMIN", "ACCOUNT"],
-    default: "ACCOUNT",
-    required: true,
-  },
   tokens: { type: [String], required: true },
+  salary: { type: String, required: true },
   deletedAt: { type: Date },
 });
 
