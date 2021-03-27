@@ -1,32 +1,18 @@
-export const userIdSwaggerPath = {
-  "/user/{id}": {
-    delete: {
-      description: "Logic delete user",
-      tags: ["User"],
-      parameters: [
-        {
-          name: "id",
-          in: "path",
-          description: "ID of user to delete",
-          required: true,
-          schema: {
-            type: "string",
-          },
-          style: "simple",
-        },
-      ],
+import { subscriptionIdSwaggerPath } from "./subscription-id.swagger";
+
+export const subscriptionSwaggerPath = {
+  "/subscription": {
+    get: {
+      description: "Get all and filtered subscriptions",
+      tags: ["Subscription"],
       responses: {
         "200": {
-          description: "The user has been deleted",
+          description: "List of subscriptions",
           content: {
             "application/json": {
               schema: {
-                type: "object",
-                properties: {
-                  message: {
-                    type: "string",
-                  },
-                },
+                type: "array",
+                items: { $ref: "#/components/schemas/ISubscription" },
               },
             },
           },
@@ -43,16 +29,6 @@ export const userIdSwaggerPath = {
         },
         "401": {
           description: "ERROR - Error not authenticated",
-          content: {
-            "application/json": {
-              schema: {
-                $ref: "#/components/schemas/IErrorResponse",
-              },
-            },
-          },
-        },
-        "403": {
-          description: "ERROR - Error not enouth permisions",
           content: {
             "application/json": {
               schema: {
@@ -73,33 +49,35 @@ export const userIdSwaggerPath = {
         },
       },
     },
-    put: {
-      description: "Updates one user",
-      tags: ["User"],
-      parameters: [
-        {
-          name: "id",
-          in: "path",
-          description: "ID of user to update",
-          required: true,
-          schema: {
-            type: "string",
+
+    post: {
+      description: "Create subscription",
+      tags: ["Subscription"],
+      requestBody: {
+        content: {
+          "application/json": {
+            schema: {
+              required: ["name", "cost", "paidPeriod"],
+              properties: {
+                name: { type: "string" },
+                cost: { type: "string" },
+                paidPeriod: { type: "string", enum: ["WEEK", "MONTH", "YEAR"] },
+                isPaid: { type: "boolean" },
+                note: { type: "string" },
+                renovationDate: { type: "string" },
+              },
+            },
           },
-          style: "simple",
         },
-      ],
+      },
       responses: {
         "200": {
-          description: "The user has been updated",
+          description: "The subscription has been created",
           content: {
             "application/json": {
               schema: {
                 type: "object",
-                properties: {
-                  message: {
-                    type: "string",
-                  },
-                },
+                properties: { $ref: "#/components/schemas/ISubscription" },
               },
             },
           },
@@ -116,16 +94,6 @@ export const userIdSwaggerPath = {
         },
         "401": {
           description: "ERROR - Error not authenticated",
-          content: {
-            "application/json": {
-              schema: {
-                $ref: "#/components/schemas/IErrorResponse",
-              },
-            },
-          },
-        },
-        "403": {
-          description: "ERROR - Error not enouth permisions",
           content: {
             "application/json": {
               schema: {
@@ -147,4 +115,5 @@ export const userIdSwaggerPath = {
       },
     },
   },
+  ...subscriptionIdSwaggerPath,
 };

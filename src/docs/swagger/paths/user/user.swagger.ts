@@ -59,6 +59,7 @@ export const userSwaggerPath = {
         content: {
           "application/json": {
             schema: {
+              required: ["email", "password"],
               properties: {
                 email: {
                   type: "string",

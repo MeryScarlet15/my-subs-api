@@ -7,6 +7,7 @@ export const subscriptionSwaggerSchema = {
         type: "integer",
       },
       name: { type: "string" },
+      cost: { type: "string" },
       paidPeriod: { type: "string", enum: ["WEEK", "MONTH", "YEAR"] },
       isPaid: { type: "boolean" },
       note: { type: "string" },

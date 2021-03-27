@@ -1,13 +1,13 @@
-export const userIdSwaggerPath = {
-  "/user/{id}": {
+export const subscriptionIdSwaggerPath = {
+  "/subscription/{id}": {
     delete: {
-      description: "Logic delete user",
-      tags: ["User"],
+      description: "Logic delete subscription",
+      tags: ["Subscription"],
       parameters: [
         {
           name: "id",
           in: "path",
-          description: "ID of user to delete",
+          description: "Subscription id to delete",
           required: true,
           schema: {
             type: "string",
@@ -17,7 +17,7 @@ export const userIdSwaggerPath = {
       ],
       responses: {
         "200": {
-          description: "The user has been deleted",
+          description: "The subscription has been deleted",
           content: {
             "application/json": {
               schema: {
@@ -43,16 +43,6 @@ export const userIdSwaggerPath = {
         },
         "401": {
           description: "ERROR - Error not authenticated",
-          content: {
-            "application/json": {
-              schema: {
-                $ref: "#/components/schemas/IErrorResponse",
-              },
-            },
-          },
-        },
-        "403": {
-          description: "ERROR - Error not enouth permisions",
           content: {
             "application/json": {
               schema: {
@@ -74,13 +64,13 @@ export const userIdSwaggerPath = {
       },
     },
     put: {
-      description: "Updates one user",
-      tags: ["User"],
+      description: "Updates one subscription",
+      tags: ["Subscription"],
       parameters: [
         {
           name: "id",
           in: "path",
-          description: "ID of user to update",
+          description: "Subscription Id to update",
           required: true,
           schema: {
             type: "string",
@@ -90,7 +80,7 @@ export const userIdSwaggerPath = {
       ],
       responses: {
         "200": {
-          description: "The user has been updated",
+          description: "The subscription has been updated",
           content: {
             "application/json": {
               schema: {
@@ -116,16 +106,6 @@ export const userIdSwaggerPath = {
         },
         "401": {
           description: "ERROR - Error not authenticated",
-          content: {
-            "application/json": {
-              schema: {
-                $ref: "#/components/schemas/IErrorResponse",
-              },
-            },
-          },
-        },
-        "403": {
-          description: "ERROR - Error not enouth permisions",
           content: {
             "application/json": {
               schema: {
