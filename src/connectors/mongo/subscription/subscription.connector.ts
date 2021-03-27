@@ -16,7 +16,9 @@ const createSubscription = async (params: ICreateSubscriptionConnectorParams): P
 };
 
 const getSubscriptions = async (filters: TFilterSubscriptionConnector): Promise<ISubscriptionDocument[]> => {
-  return await Subscription.find({ ...filters, deletedAt: { $exists: false } }).exec();
+  return await Subscription.find({ ...filters, deletedAt: { $exists: false } })
+    .populate({ path: "User" })
+    .exec();
 };
 
 const deleteSubscription = async (filter: TFilterSubscriptionConnector) => {

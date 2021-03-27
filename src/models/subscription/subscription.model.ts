@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema } from "mongoose";
-import { IUserDocument } from "../user/user.model";
+import { IUser, IUserDocument } from "../user/user.model";
 
 export type IPaidPeriod = "WEEK" | "MONTH" | "YEAR";
 

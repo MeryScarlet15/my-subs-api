@@ -1,4 +1,5 @@
 import { IPaidPeriod, ISubscription } from "../../../models/subscription/subscription.model";
+import { Overwrite } from "../../../utils/typescript-helpers/overwrite-helper";
 
 export interface ICreateSubscriptionConnectorParams {
   name: string;
@@ -10,7 +11,10 @@ export interface ICreateSubscriptionConnectorParams {
   user: string;
 }
 
-export type TFilterSubscriptionConnector = { [key in keyof Omit<ISubscription, "deleteAt">]?: ISubscription[key] };
+export type TFilterSubscriptionConnector = Overwrite<
+  { [key in keyof Omit<ISubscription, "deleteAt">]?: ISubscription[key] },
+  { user?: any }
+>;
 
 export type TUpdateSubscriptionsConnector = {
   [key in keyof Omit<ISubscription, "deleteAt" | "_id">]?: ISubscription[key];
