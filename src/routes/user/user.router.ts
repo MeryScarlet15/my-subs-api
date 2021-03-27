@@ -22,7 +22,6 @@ router.post("/", async (req: TRequest<TPostUserBody>, res: TResponse<TPostUserRe
     password: body.password,
     name: body.name,
     lastname: body.lastname,
-    rol: body.rol,
   };
 
   try {
@@ -100,9 +99,6 @@ router.get("/", auth, async (req: TAuthRequest<{}>, res: TResponse<IUserDocument
   const filters = getAcceptedFilters(acceptedFilters, body);
 
   try {
-    if (authUser.rol !== "ADMIN") {
-      throw "ERROR_NOT_ENOUGH_PERMISIONS";
-    }
     const users = await userService.getUsers(filters);
 
     res.status(200).send(users);
@@ -122,9 +118,6 @@ router.delete("/:id", auth, async (req: TAuthRequest<{}, { id: string }>, res: T
   const authUser = req.user;
   const params = req.params;
   try {
-    if (authUser.rol !== "ADMIN") {
-      throw "ERROR_NOT_ENOUGH_PERMISIONS";
-    }
     const deletedUserMessage = await userService.deleteUser(params.id);
 
     res.status(200).send(deletedUserMessage);
@@ -145,9 +138,6 @@ router.put("/:id", auth, async (req: TAuthRequest<IUser, { id: string }>, res: T
   const params = req.params;
   const userUpdated = { ...body };
   try {
-    if (authUser.rol !== "ADMIN") {
-      throw "ERROR_NOT_ENOUGH_PERMISIONS";
-    }
     const updatedUserMessage = await userService.updateUser(params.id, userUpdated);
 
     res.status(200).send(updatedUserMessage);

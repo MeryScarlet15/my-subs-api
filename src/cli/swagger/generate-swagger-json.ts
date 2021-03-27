@@ -39,6 +39,7 @@ export const generateSwaggerJson = async () => {
       console.error(err);
       return;
     }
-    //file written successfully
+
+    console.log("swagger.json generated successfully");
   });
 };

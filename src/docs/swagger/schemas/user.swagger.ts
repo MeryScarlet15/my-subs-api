@@ -12,7 +12,6 @@ export const userSwaggerSchema = {
       name: { type: "string" },
       lastname: { type: "string" },
       password: { type: "string" },
-      rol: { type: "string", enum: ["ADMIN", "ACCOUNT"] },
       tokens: { type: "array", items: { type: "string" } },
       deletedAt: { type: "string" },
     },

@@ -66,7 +66,6 @@ export const userSwaggerPath = {
                 name: { type: "string" },
                 lastname: { type: "string" },
                 password: { type: "string" },
-                rol: { type: "string", enum: ["ADMIN", "ACCOUNT"] },
               },
             },
           },
