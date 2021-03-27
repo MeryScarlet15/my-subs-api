@@ -1,4 +1,3 @@
-import { AnyARecord } from "dns";
 import express, { Router } from "express";
 import { auth, TAuthRequest } from "../../middleware/auth.middleware";
 import { TRequest, TResponse } from "../../models/shared/express-types";
