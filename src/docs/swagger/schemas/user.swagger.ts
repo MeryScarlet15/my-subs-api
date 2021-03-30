@@ -12,6 +12,7 @@ export const userSwaggerSchema = {
       name: { type: "string" },
       lastname: { type: "string" },
       password: { type: "string" },
+      subscriptionCost: { type: "number", required: true },
       tokens: { type: "array", items: { type: "string" } },
       deletedAt: { type: "string" },
     },

@@ -19,7 +19,7 @@ export interface IUserDocument extends Document {
   lastname?: string;
   password: string;
   tokens: string[];
-  salary: string;
+  subscriptionCost: string;
   deletedAt?: string;
 }
 
@@ -29,7 +29,7 @@ const UserSchema: Schema = new Schema({
   name: { type: String, required: true },
   lastname: { type: String, required: true },
   tokens: { type: [String], required: true },
-  salary: { type: String, required: true },
+  subscriptionCost: { type: Number, required: true },
   deletedAt: { type: Date },
 });
 
