@@ -21,8 +21,8 @@ router.post("/", async (req: TRequest<TPostUserBody>, res: TResponse<TPostUserRe
     password: body.password,
     name: body.name,
     lastname: body.lastname,
+    subscriptionCost: 0,
   };
-
   try {
     validateRequiredParams(user);
 

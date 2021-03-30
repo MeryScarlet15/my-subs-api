@@ -19,8 +19,9 @@ const createUser = async ({
   password,
   name,
   lastname,
+  subscriptionCost,
 }: TRegisterUserConnectorParams): Promise<IUserDocument> => {
-  const user = new User({ email, password, name, lastname });
+  const user = new User({ email, password, name, lastname, subscriptionCost });
   await user.save();
 
   return user;

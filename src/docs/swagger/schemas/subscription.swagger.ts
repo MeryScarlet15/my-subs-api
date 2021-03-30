@@ -11,7 +11,7 @@ export const subscriptionSwaggerSchema = {
       paidPeriod: { type: "string", enum: ["WEEK", "MONTH", "YEAR"] },
       isPaid: { type: "boolean" },
       note: { type: "string" },
-      renovationDate: { type: "date" },
+      renovationDay: { type: "number" },
       deletedAt: { type: "date" },
     },
   },

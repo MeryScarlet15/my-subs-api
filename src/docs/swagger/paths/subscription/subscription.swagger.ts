@@ -64,7 +64,7 @@ export const subscriptionSwaggerPath = {
                 paidPeriod: { type: "string", enum: ["WEEK", "MONTH", "YEAR"] },
                 isPaid: { type: "boolean" },
                 note: { type: "string" },
-                renovationDate: { type: "string" },
+                renovationDay: { type: "number" },
               },
             },
           },
