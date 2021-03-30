@@ -9,7 +9,7 @@ export interface ISubscription {
   cost: string;
   paidPeriod: IPaidPeriod;
   isPaid: boolean;
-  renovationDate?: Date;
+  renovationDay?: number;
   note?: string;
   user: IUserDocument;
   deletedAt?: string;
@@ -20,7 +20,7 @@ export interface ISubscriptionDocument extends Document {
   cost: string;
   paidPeriod: IPaidPeriod;
   isPaid: boolean;
-  renovationDate?: Date;
+  renovationDay?: number;
   note?: string;
   user: IUserDocument;
   deletedAt?: string;
@@ -33,7 +33,7 @@ const SubscriptionSchema: Schema = new Schema({
   isPaid: { type: Boolean, required: true },
   note: { type: String },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", require: true },
-  renovationDate: { type: Date },
+  renovationDay: { type: Number },
   deletedAt: { type: Date },
 });
 

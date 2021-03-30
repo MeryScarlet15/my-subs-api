@@ -10,6 +10,7 @@ export interface IUser {
   lastname?: string;
   password: string;
   tokens: string[];
+  subscriptionCost?: number;
   deletedAt?: string;
 }
 
@@ -19,7 +20,7 @@ export interface IUserDocument extends Document {
   lastname?: string;
   password: string;
   tokens: string[];
-  subscriptionCost: string;
+  subscriptionCost?: number;
   deletedAt?: string;
 }
 
